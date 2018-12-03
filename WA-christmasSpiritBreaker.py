@@ -18,7 +18,7 @@ christmas_time_interval = ["08:00", "23:59"]
 christmas_contacts_list = ["John McAfee", "Tim Cook", "Elon Musk", "Person I Hate"]
 
 #NEW YEAR'S SETUP
-newYears_messages = ["Merry christmas!", "I wish you a merry christmas", "Merry christmas to you and family"]
+newYears_messages = ["Happy New Year!", "Felice capodanno as the italians say", "I totally wrote this messages on my own"]
 newYears_time_interval = ["00:00", "00:15"]
 newYears_contacts_list = ["John McAfee", "Tim Cook", "Elon Musk", "Person I Hate"]
 
@@ -86,6 +86,12 @@ for i in range(0, len(newYears_contacts_list)):
     newYears_contacts_list_times[i][0] = int(newTime[0:2])
     newYears_contacts_list_times[i][1] = int(newTime[3:5])
 
+    #Reassuring users the script actually works
+    if(christmasModeEnabled):
+        print("Christmas messages setup correctly, They will be sent on December 25th in the time interval " + christmas_time_interval[0] + " " + christmas_time_interval[1])
+    if(newYearsModeEnabled):
+        print("New Year's messages setup correctly, They will be sent on January 1st in the time interval " + christmas_time_interval[0] + " " + christmas_time_interval[1])
+
 while True:
     if (christmasModeEnabled):
         if (int(datetime.datetime.today().day) == 25) and (int(datetime.datetime.today().month) == 12):
@@ -98,8 +104,5 @@ while True:
             for i in range(0, len(newYears_contacts_list)):
                 if (int(datetime.datetime.today().hour) in newYears_contacts_list_times[0]):
                     if (int(datetime.datetime.today().minute) in newYears_contacts_list_times[1]):
-                        newYearsMessage()
-    
-
-                
+                        newYearsMessage()        
     time.sleep(60) #Wait one minute to check if it's #morningtime
