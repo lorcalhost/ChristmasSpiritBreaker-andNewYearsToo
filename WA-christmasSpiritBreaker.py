@@ -32,36 +32,38 @@ driver = webdriver.Chrome('./chromedriver')
 driver.get("https://web.whatsapp.com/")
 wait = WebDriverWait(driver, 600)
 
-def christmasMessage():
+def christmasMessage(hour, minute):
     #Sending Christmas message
     global driver
     for i in range(0, len(christmas_contacts_list)):
-        msg = random.choice(christmas_messages)
-        pyperclip.copy(msg) #Copies random message to clipboard
-        x_arg = '//span[contains(@title,' + christmas_contacts_list[i] + ')]'
-        group_title = wait.until(EC.presence_of_element_located((By.XPATH, x_arg)))
-        group_title.click()
-        message = driver.find_elements_by_xpath('//*[@id="main"]/footer/div[1]/div[2]/div/div[2]')[0]
-        message.send_keys(Keys.CONTROL, 'v') #Sends message from clipboard
-        sendbutton = driver.find_elements_by_xpath('//*[@id="main"]/footer/div[1]/div[3]/button')[0]
-        sendbutton.click() #Presses send button
-        time.sleep(0.5)
+        if christmas_contacts_list_times[i][0] == hour and christmas_contacts_list_times[i][1] == minute:
+            msg = random.choice(christmas_messages)
+            pyperclip.copy(msg) #Copies random message to clipboard
+            x_arg = '//span[contains(@title,' + christmas_contacts_list[i] + ')]'
+            group_title = wait.until(EC.presence_of_element_located((By.XPATH, x_arg)))
+            group_title.click()
+            message = driver.find_elements_by_xpath('//*[@id="main"]/footer/div[1]/div[2]/div/div[2]')[0]
+            message.send_keys(Keys.CONTROL, 'v') #Sends message from clipboard
+            sendbutton = driver.find_elements_by_xpath('//*[@id="main"]/footer/div[1]/div[3]/button')[0]
+            sendbutton.click() #Presses send button
+            print("Message successfully sent to "+ christmas_contacts_list[i])
     return
 
-def newYearsMessage():
+def newYearsMessage(hour, minute):
     #Sending New Year's message
     global driver
     for i in range(0, len(newYears_contacts_list)):
-        msg = random.choice(newYears_messages)
-        pyperclip.copy(msg) #Copies random message to clipboard
-        x_arg = '//span[contains(@title,' + newYears_contacts_list[i] + ')]'
-        group_title = wait.until(EC.presence_of_element_located((By.XPATH, x_arg)))
-        group_title.click()
-        message = driver.find_elements_by_xpath('//*[@id="main"]/footer/div[1]/div[2]/div/div[2]')[0]
-        message.send_keys(Keys.CONTROL, 'v') #Sends message from clipboard
-        sendbutton = driver.find_elements_by_xpath('//*[@id="main"]/footer/div[1]/div[3]/button')[0]
-        sendbutton.click() #Presses send button
-        time.sleep(0.5) #Waits half a second before sending the next message
+        iif newYears_contacts_list_times[i][0] == hour and newYears_contacts_list_times[i][1] == minute:
+            msg = random.choice(newYears_messages)
+            pyperclip.copy(msg) #Copies random message to clipboard
+            x_arg = '//span[contains(@title,' + newYears_contacts_list[i] + ')]'
+            group_title = wait.until(EC.presence_of_element_located((By.XPATH, x_arg)))
+            group_title.click()
+            message = driver.find_elements_by_xpath('//*[@id="main"]/footer/div[1]/div[2]/div/div[2]')[0]
+            message.send_keys(Keys.CONTROL, 'v') #Sends message from clipboard
+            sendbutton = driver.find_elements_by_xpath('//*[@id="main"]/footer/div[1]/div[3]/button')[0]
+            sendbutton.click() #Presses send button
+            print("Message successfully sent to "+ newYears_contacts_list[i])
     return
 
 def newRandTime(customTimeInterval):
@@ -99,14 +101,8 @@ for i in range(0, len(newYears_contacts_list)):
 while True:
     if (christmasModeEnabled):
         if (int(datetime.datetime.today().day) == 25) and (int(datetime.datetime.today().month) == 12):
-            for i in range(0, len(christmas_contacts_list)):
-                if (int(datetime.datetime.today().hour) in christmas_contacts_list_times[0]):
-                    if (int(datetime.datetime.today().minute) in christmas_contacts_list_times[1]):
-                        christmasMessage()
+            christmasMessage(int(datetime.datetime.today().hour), int(datetime.datetime.today().minute))
     if (newYearsModeEnabled):
         if (int(datetime.datetime.today().day) == 1) and (int(datetime.datetime.today().month) == 1):
-            for i in range(0, len(newYears_contacts_list)):
-                if (int(datetime.datetime.today().hour) in newYears_contacts_list_times[0]):
-                    if (int(datetime.datetime.today().minute) in newYears_contacts_list_times[1]):
-                        newYearsMessage()        
+            newYearsMessage(int(datetime.datetime.today().hour), int(datetime.datetime.today().minute))        
     time.sleep(60) #Wait one minute to check if it's #morningtime
