@@ -54,7 +54,7 @@ def newYearsMessage():
     for i in range(0, len(newYears_contacts_list)):
         msg = random.choice(newYears_messages)
         pyperclip.copy(msg) #Copies random message to clipboard
-        x_arg = '//span[contains(@title,' + christmas_contacts_list[i] + ')]'
+        x_arg = '//span[contains(@title,' + newYears_contacts_list[i] + ')]'
         group_title = wait.until(EC.presence_of_element_located((By.XPATH, x_arg)))
         group_title.click()
         message = driver.find_elements_by_xpath('//*[@id="main"]/footer/div[1]/div[2]/div/div[2]')[0]
