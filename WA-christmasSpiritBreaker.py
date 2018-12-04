@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*- 
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -7,6 +8,7 @@ import time
 import sys
 import datetime
 import random
+import pyperclip
 
 #GENERAL SETUP
 christmasModeEnabled = True #Change to False to disable Christmas mode
@@ -30,16 +32,17 @@ driver = webdriver.Chrome('./chromedriver')
 driver.get("https://web.whatsapp.com/")
 wait = WebDriverWait(driver, 600)
 
-def chrismasMessage():
+def christmasMessage():
     #Sending Christmas message
     global driver
     for i in range(0, len(christmas_contacts_list)):
         msg = random.choice(christmas_messages)
+        pyperclip.copy(msg) #Copies random message to clipboard
         x_arg = '//span[contains(@title,' + christmas_contacts_list[i] + ')]'
         group_title = wait.until(EC.presence_of_element_located((By.XPATH, x_arg)))
         group_title.click()
         message = driver.find_elements_by_xpath('//*[@id="main"]/footer/div[1]/div[2]/div/div[2]')[0]
-        message.send_keys(msg) #Sends pre selected random message
+        message.send_keys(Keys.CONTROL, 'v') #Sends message from clipboard
         sendbutton = driver.find_elements_by_xpath('//*[@id="main"]/footer/div[1]/div[3]/button')[0]
         sendbutton.click() #Presses send button
         time.sleep(0.5)
@@ -50,11 +53,12 @@ def newYearsMessage():
     global driver
     for i in range(0, len(newYears_contacts_list)):
         msg = random.choice(newYears_messages)
+        pyperclip.copy(msg) #Copies random message to clipboard
         x_arg = '//span[contains(@title,' + christmas_contacts_list[i] + ')]'
         group_title = wait.until(EC.presence_of_element_located((By.XPATH, x_arg)))
         group_title.click()
         message = driver.find_elements_by_xpath('//*[@id="main"]/footer/div[1]/div[2]/div/div[2]')[0]
-        message.send_keys(msg) #Sends pre selected random message
+        message.send_keys(Keys.CONTROL, 'v') #Sends message from clipboard
         sendbutton = driver.find_elements_by_xpath('//*[@id="main"]/footer/div[1]/div[3]/button')[0]
         sendbutton.click() #Presses send button
         time.sleep(0.5) #Waits half a second before sending the next message
@@ -98,7 +102,7 @@ while True:
             for i in range(0, len(christmas_contacts_list)):
                 if (int(datetime.datetime.today().hour) in christmas_contacts_list_times[0]):
                     if (int(datetime.datetime.today().minute) in christmas_contacts_list_times[1]):
-                        chrismasMessage()
+                        christmasMessage()
     if (newYearsModeEnabled):
         if (int(datetime.datetime.today().day) == 1) and (int(datetime.datetime.today().month) == 1):
             for i in range(0, len(newYears_contacts_list)):
