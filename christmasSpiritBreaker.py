@@ -76,19 +76,6 @@ def newRandTime(customTimeInterval):
 christmas_contacts_list_times = [[0]*2 for i in range(len(christmas_contacts_list))]
 newYears_contacts_list_times = [[0]*2 for i in range(len(christmas_contacts_list))]
 
-
-for i in range(0, len(christmas_contacts_list)):
-    christmas_contacts_list[i] = str('"' + christmas_contacts_list[i] + '"')
-    newTime = newRandTime(christmas_time_interval)
-    christmas_contacts_list_times[i][0] = int(newTime[0:2])
-    christmas_contacts_list_times[i][1] = int(newTime[3:5])
-
-for i in range(0, len(newYears_contacts_list)):
-    newYears_contacts_list[i] = str('"' + newYears_contacts_list[i] + '"')
-    newTime = newRandTime(christmas_time_interval)
-    newYears_contacts_list_times[i][0] = int(newTime[0:2])
-    newYears_contacts_list_times[i][1] = int(newTime[3:5])
-
     #Reassuring users the script actually works
     if(christmasModeEnabled):
         print("Christmas messages setup correctly, They will be sent on December 25th in the time interval " + christmas_time_interval[0] + " " + christmas_time_interval[1])
