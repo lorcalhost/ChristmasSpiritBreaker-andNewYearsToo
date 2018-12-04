@@ -53,7 +53,7 @@ def newYearsMessage(hour, minute):
     #Sending New Year's message
     global driver
     for i in range(0, len(newYears_contacts_list)):
-        iif newYears_contacts_list_times[i][0] == hour and newYears_contacts_list_times[i][1] == minute:
+        if newYears_contacts_list_times[i][0] == hour and newYears_contacts_list_times[i][1] == minute:
             msg = random.choice(newYears_messages)
             pyperclip.copy(msg) #Copies random message to clipboard
             x_arg = '//span[contains(@title,' + newYears_contacts_list[i] + ')]'
