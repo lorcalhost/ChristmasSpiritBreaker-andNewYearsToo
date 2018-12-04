@@ -15,9 +15,9 @@ client = fbchat.Client(username, passwrd)
 def christmasMessage(hour, minute):
     #Sending Christmas message
     global client
-    for i in range(0, len(config.christmas_contacts_list)):
-        if christmas_contacts_list_times[i][0] == hour and christmas_contacts_list_times[i][1] == minute:
-            friends = client.searchForUsers(config.christmas_contacts_list[i])
+    for i in range(0, len(config.FB_christmas_contacts_list)):
+        if FB_christmas_contacts_list_times[i][0] == hour and FB_christmas_contacts_list_times[i][1] == minute:
+            friends = client.searchForUsers(config.FB_christmas_contacts_list[i])
             friend = friends[0]
             msg = random.choice(config.christmas_messages)
             sent = client.send(Message(msg), thread_id=friend.uid, thread_type=ThreadType.USER)
@@ -33,9 +33,9 @@ def christmasMessage(hour, minute):
 def newYearsMessage(hour, minute):
     #Sending New Year's message
     global client
-    for i in range(0, len(config.newYears_contacts_list)):
-        if newYears_contacts_list_times[i][0] == hour and newYears_contacts_list_times[i][1] == minute:
-            friends = client.searchForUsers(config.newYears_contacts_list[i])
+    for i in range(0, len(config.FB_newYears_contacts_list)):
+        if FB_newYears_contacts_list_times[i][0] == hour and FB_newYears_contacts_list_times[i][1] == minute:
+            friends = client.searchForUsers(config.FB_newYears_contacts_list[i])
             friend = friends[0]
             msg = random.choice(config.newYears_messages)
             sent = client.send(Message(msg), thread_id=friend.uid, thread_type=ThreadType.USER)
@@ -58,18 +58,18 @@ def newRandTime(customTimeInterval):
         randTimeMinute = random.randint(0, 59)
     return str(str(randTimeHour).zfill(2) + ":" + str(randTimeMinute).zfill(2))
 
-christmas_contacts_list_times = [[0]*2 for i in range(len(config.christmas_contacts_list))]
-newYears_contacts_list_times = [[0]*2 for i in range(len(config.christmas_contacts_list))]
+FB_christmas_contacts_list_times = [[0]*2 for i in range(len(config.FB_christmas_contacts_list))]
+FB_newYears_contacts_list_times = [[0]*2 for i in range(len(config.FB_christmas_contacts_list))]
 
-for i in range(0, len(config.christmas_contacts_list)):
+for i in range(0, len(config.FB_christmas_contacts_list)):
     newTime = newRandTime(config.christmas_time_interval)
-    christmas_contacts_list_times[i][0] = int(newTime[0:2])
-    christmas_contacts_list_times[i][1] = int(newTime[3:5])
+    FB_christmas_contacts_list_times[i][0] = int(newTime[0:2])
+    FB_christmas_contacts_list_times[i][1] = int(newTime[3:5])
 
-for i in range(0, len(config.newYears_contacts_list)):
+for i in range(0, len(config.FB_newYears_contacts_list)):
     newTime = newRandTime(config.christmas_time_interval)
-    newYears_contacts_list_times[i][0] = int(newTime[0:2])
-    newYears_contacts_list_times[i][1] = int(newTime[3:5])
+    FB_newYears_contacts_list_times[i][0] = int(newTime[0:2])
+    FB_newYears_contacts_list_times[i][1] = int(newTime[3:5])
 
 #Reassuring users the script actually works
 if(config.christmasModeEnabled):
