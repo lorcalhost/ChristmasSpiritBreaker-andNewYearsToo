@@ -23,6 +23,10 @@ def christmasMessage(hour, minute):
     global driver
     for i in range(0, len(config.WA_christmas_contacts_list)):
         if WA_christmas_contacts_list_times[i][0] == hour and WA_christmas_contacts_list_times[i][1] == minute:
+            pyperclip.copy(config.WA_christmas_contacts_list[i])
+            searchbar = driver.find_elements_by_xpath('//*[@id="side"]/div[1]/div/label/input')[0]
+            searchbar.click() #Click on searchbar
+            searchbar.send_keys(Keys.CONTROL, 'v') #Search for contact for more speed
             msg = random.choice(config.christmas_messages)
             pyperclip.copy(msg) #Copies random message to clipboard
             x_arg = '//span[contains(@title,' + config.WA_christmas_contacts_list[i] + ')]'
@@ -32,6 +36,9 @@ def christmasMessage(hour, minute):
             message.send_keys(Keys.CONTROL, 'v') #Sends message from clipboard
             sendbutton = driver.find_elements_by_xpath('//*[@id="main"]/footer/div[1]/div[3]/button')[0]
             sendbutton.click() #Presses send button
+            searchbar.click() #Click on searchbar
+            searchbar.send_keys(Keys.CONTROL, 'a') #Select all
+            searchbar.send_keys(Keys.DELETE) #Delete searchbar content
             print("Message successfully sent to "+ config.WA_christmas_contacts_list[i])
     return
 
@@ -40,6 +47,10 @@ def newYearsMessage(hour, minute):
     global driver
     for i in range(0, len(config.WA_newYears_contacts_list)):
         if WA_newYears_contacts_list_times[i][0] == hour and WA_newYears_contacts_list_times[i][1] == minute:
+            pyperclip.copy(config.WA_newYears_contacts_list[i])
+            searchbar = driver.find_elements_by_xpath('//*[@id="side"]/div[1]/div/label/input')[0]
+            searchbar.click() #Click on searchbar
+            searchbar.send_keys(Keys.CONTROL, 'v') #Search for contact for more speed
             msg = random.choice(config.newYears_messages)
             pyperclip.copy(msg) #Copies random message to clipboard
             x_arg = '//span[contains(@title,' + config.WA_newYears_contacts_list[i] + ')]'
@@ -49,6 +60,9 @@ def newYearsMessage(hour, minute):
             message.send_keys(Keys.CONTROL, 'v') #Sends message from clipboard
             sendbutton = driver.find_elements_by_xpath('//*[@id="main"]/footer/div[1]/div[3]/button')[0]
             sendbutton.click() #Presses send button
+            searchbar.click() #Click on searchbar
+            searchbar.send_keys(Keys.CONTROL, 'a') #Select all
+            searchbar.send_keys(Keys.DELETE) #Delete searchbar content
             print("Message successfully sent to "+ config.WA_newYears_contacts_list[i])
     return
 
