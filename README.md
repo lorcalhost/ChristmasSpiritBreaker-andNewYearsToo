@@ -59,6 +59,7 @@ For *Android* users: you will also need to press ```"ACQUIRE WAKELOCK"``` in the
 
 Santa relies on reindeers for delivery, and so does Christmas Spirit Breaker rely on a few things, here is what to do to get them:  
 - Python3 is needed get it from [here](https://www.python.org/downloads/)
+- Chrome Driver get it from [here](https://chromedriver.storage.googleapis.com/index.html?path=2.44/) and unzip in the ```ChristmasSpiritBreaker-andNewYearsToo```
 
 ###### For Linux:
 Run these commands in your preferred terminal application  
