@@ -1,7 +1,7 @@
 # Christmas Spirit Breaker (and New Years Too)
 ##### "Are you tired of having to manually write and send christmas texts to everyone on christmas to mantain a good relationship with them? Do you want to be the annoying person who is the first one to send "Happy new year" messages to everyone on your contact list exactly at midnight? Do you want to be a bad boy this christmas season? I got you covered."  
   
-Introducing ***Christmas Spirit Breaker***, a python script which automatically sends a custom christmas/new year's greeting message, from a custom messages list, to your selected contacts you want to mantain good relationships with, at given time range on Facebook Messenger or WhatsApp. Time to be bad boys this christmas. *Work smarter, not Harder.*
+Introducing ***Christmas Spirit Breaker***, a python script which automatically sends a custom christmas/new year's greeting message, from a custom messages list, to your selected contacts you want to mantain good relationships with, at given time range on Facebook Messenger, WhatsApp or via SMS. Time to be bad boys this christmas. *Work smarter, not Harder.*
 
 ### What you will gain:
   - More time spent with the new body pillow you just received for christmas.
@@ -44,22 +44,15 @@ git clone https://github.com/lorcalhost/ChristmasSpiritBreaker-andNewYearsToo.gi
 ```
 Please note that every time you restart your device, you will have to re run the commands in the *How to run* section
 
-### How to run
-###### PC:
-```cd ChristmasSpiritBreaker-andNewYearsToo``` and ```python christmasSpiritBreaker.py```  
-###### Android:
-Simply ```cd storage/downloads/ChristmasSpiritBreaker-andNewYearsToo``` and ```python christmasSpiritBreaker.py```  
-
-For *Android* users: you will also need to press ```"ACQUIRE WAKELOCK"``` in the Termux notification to enable the script to run in the background without the process being killed
-
 ---
 
-# WhatsApp
+# WhatsApp and SMS
 ### Installation on PC
 
 Santa relies on reindeers for delivery, and so does Christmas Spirit Breaker rely on a few things, here is what to do to get them:  
 - Python3 is needed get it from [here](https://www.python.org/downloads/)
 - Chrome Driver get it from [here](https://chromedriver.storage.googleapis.com/index.html?path=2.44/) and unzip in the ```ChristmasSpiritBreaker-andNewYearsToo```
+- If you want to setup SMS you will need to have [Google messages](https://play.google.com/store/apps/details?id=com.google.android.apps.messaging) on your Android phone
 
 ###### For Linux:
 Run these commands in your preferred terminal application  
@@ -75,10 +68,26 @@ git clone https://github.com/lorcalhost/ChristmasSpiritBreaker-andNewYearsToo.gi
 sudo pip install selenium bs4 pyperclip
 git clone https://github.com/lorcalhost/ChristmasSpiritBreaker-andNewYearsToo.git
 ```
-### How to run
-Simply ```cd ChristmasSpiritBreaker-andNewYearsToo``` and ```python WA-christmasSpiritBreaker.py```  
-After you enter the name of your *bae* WhatsApp web will open, scan the QR code on the website using the WhatsApp application:  
-Launch WhatsApp on your phone and access the settings menu by clicking the three dots at the top right, then choose WhatsApp Web and scan. 
+##### SMS mode is strongly not suggested, it's slow and buggy due to Google Messages nature
+
+---
+
+# How to run
+First go to the program directory by typing in the terminal:
+- From **PC:**  ```cd ChristmasSpiritBreaker-andNewYearsToo``` 
+- From **Android:** ```cd storage/downloads/ChristmasSpiritBreaker-andNewYearsToo```  
+
+Then run the script with the according argument:  
+- For **WhatsApp version**: ```python christmasSpiritBreaker -w``` or ```python christmasSpiritBreaker whatsapp``` 
+- For **Messenger version**: ```python christmasSpiritBreaker -m``` or ```python christmasSpiritBreaker messenger``` 
+- For **SMS version**: ```python christmasSpiritBreaker -s``` or ```python christmasSpiritBreaker sms``` 
+
+Also other arguments exist like:
+- To open **user guide**: ```python christmasSpiritBreaker -h``` or ```python christmasSpiritBreaker help```  or ```python christmasSpiritBreaker man``` 
+- To **update** the script: ```python christmasSpiritBreaker update```
+
+**For *Android* users:** you will also need to press ```"ACQUIRE WAKELOCK"``` in the Termux notification to enable the script to run in the background withoutthe process being killed  
+***Android right now only supports Facebook Messenger mode***
 
 ---
 
@@ -107,7 +116,7 @@ christmas_messages = ["Merry christmas!", "New custom message"]
 ```
 ## Custom contacts:
 **Important:**
- - Make sure that if you are setting up **WhatsApp** contatcs you are writing their names **as they appear in your phone's conatct list**  
+ - Make sure that if you are setting up **WhatsApp** contatcs or **SMS** contacts you are writing their names **as they appear in your phone's conatct list**  
  - If you are using **Messenger** use your contact's messenger **username**
 
 Replace the contact names in between ```" "``` with your own custom contact names, you can also add more custom contacts by adding after the ```"``` of the last contact a comma and a new contacts, always in between ```" "```s. 

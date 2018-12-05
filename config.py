@@ -7,7 +7,6 @@
 \____/  \___/ |_| |_||_|  |_| \__, |
                               |___/
 """
-
 # CHOOSE IF YOU WANT THE PROGRAM TO WORK BOTH FOR CHRISTMAS AND NEW YEAR'S OR JUST ONE OF THEM
 # Set to True to enable, False to disable
 christmasModeEnabled = True # Change to False to disable Christmas mode
@@ -31,7 +30,7 @@ FB_christmas_contacts_list = ["lollocll", "markzuckerberg", "elonmusk", "santacl
 # Insert here the Facebook Messenger USERNAMES (Not names) of the people whom to send new year's messages
 FB_newYears_contacts_list = ["lollocll", "markzuckerberg", "elonmusk", "santaclaus"]
 
-# WHATSAPP CONTACTS SETUP:
+# WHATSAPP AND SMS CONTACTS SETUP:
 # Insert here the names of the people whom to send christmas messages as they appear in your contacts list:
 WA_christmas_contacts_list = ["John McAfee", "Tim Cook", "Elon Musk", "Person I Hate"]
 # Insert here the names of the people whom to send new year's messages as they appear in your contacts list:
