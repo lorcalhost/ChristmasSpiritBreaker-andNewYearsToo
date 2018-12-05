@@ -78,13 +78,13 @@ First go to the program directory by typing in the terminal:
 - From **Android:** ```cd storage/downloads/ChristmasSpiritBreaker-andNewYearsToo```  
 
 Then run the script with the according argument:  
-- For **WhatsApp version**: ```python christmasSpiritBreaker -w``` or ```python christmasSpiritBreaker whatsapp``` 
-- For **Messenger version**: ```python christmasSpiritBreaker -m``` or ```python christmasSpiritBreaker messenger``` 
-- For **SMS version**: ```python christmasSpiritBreaker -s``` or ```python christmasSpiritBreaker sms``` 
+- For **WhatsApp version**: ```python christmasSpiritBreaker.py -w``` or ```python christmasSpiritBreaker.py whatsapp``` 
+- For **Messenger version**: ```python christmasSpiritBreaker.py -m``` or ```python christmasSpiritBreaker.py messenger``` 
+- For **SMS version**: ```python christmasSpiritBreaker.py -s``` or ```python christmasSpiritBreaker.py sms``` 
 
 Also other arguments exist like:
-- To open **user guide**: ```python christmasSpiritBreaker -h``` or ```python christmasSpiritBreaker help```  or ```python christmasSpiritBreaker man``` 
-- To **update** the script: ```python christmasSpiritBreaker update```
+- To open **user guide**: ```python christmasSpiritBreaker.py -h``` or ```python christmasSpiritBreaker.py help```  or ```python christmasSpiritBreaker.py man``` 
+- To **update** the script: ```python christmasSpiritBreaker.py update```
 
 **For *Android* users:** you will also need to press ```"ACQUIRE WAKELOCK"``` in the Termux notification to enable the script to run in the background withoutthe process being killed  
 ***Android right now only supports Facebook Messenger mode***
