@@ -51,7 +51,7 @@ Please note that every time you restart your device, you will have to re run the
 
 Santa relies on reindeers for delivery, and so does Christmas Spirit Breaker rely on a few things, here is what to do to get them:  
 - Python3 is needed get it from [here](https://www.python.org/downloads/)
-- Chrome Driver get it from [here](https://chromedriver.storage.googleapis.com/index.html?path=2.44/) and unzip in the ```ChristmasSpiritBreaker-andNewYearsToo```
+- Chrome Driver get it from [here](https://chromedriver.storage.googleapis.com/index.html?path=2.44/) and unzip in the ```ChristmasSpiritBreaker-andNewYearsToo``` folder
 - If you want to setup SMS you will need to have [Google messages](https://play.google.com/store/apps/details?id=com.google.android.apps.messaging) on your Android phone
 
 ###### For Linux:
@@ -101,7 +101,7 @@ If you don't want to use the bot for both christmas and new years you can disabl
 christmasModeEnabled = True # Change to False to disable Christmas mode
 newYearsModeEnabled = True # Change to False to disable New Year's mode
 ```
-###### If you still cannoit understand:
+###### If you still cannot understand from the config.py file..
 ## Custom messages:
 
 
