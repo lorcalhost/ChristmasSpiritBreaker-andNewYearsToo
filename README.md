@@ -1,7 +1,7 @@
 # Christmas Spirit Breaker (and New Years Too)
 ##### "Are you tired of having to manually write and send christmas texts to everyone on christmas to mantain a good relationship with them? Do you want to be the annoying person who is the first one to send "Happy new year" messages to everyone on your contact list exactly at midnight? Do you want to be a bad boy this christmas season? I got you covered."  
   
-Introducing ***Christmas Spirit Breaker***, a python script which automatically sends a custom christmas/new year's greeting message, from a custom messages list, to your selected contacts you want to mantain good relationships with, at given time range on Facebook Messenger, WhatsApp or via SMS. Time to be bad boys this christmas. *Work smarter, not Harder.*
+Strongly inspired by my other project [RomanceBreaker](https://github.com/lorcalhost/RomanceBreaker/), introducing ***Christmas Spirit Breaker***, a python script which automatically sends a custom christmas/new year's greeting message, from a custom messages list, to your selected contacts you want to mantain good relationships with, at given time range on Facebook Messenger, WhatsApp or via SMS. Time to be bad boys this christmas. *Work smarter, not Harder.*
 
 ### What you will gain:
   - More time spent with the new body pillow you just received for christmas.
