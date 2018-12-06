@@ -14,10 +14,10 @@ import config
 def christmasMessage(hour, minute):
     #Sending Christmas message
     global driver
-    for i in range(0, len(config.WA_christmas_contacts_list)):
-        if WA_christmas_contacts_list_times[i][0] == hour and WA_christmas_contacts_list_times[i][1] == minute:
+    for i in range(0, len(config.christmas_contact_names)):
+        if christmas_contact_names_times[i][0] <= hour and christmas_contact_names_times[i][1] <= minute:
             try:
-                pyperclip.copy(config.WA_christmas_contacts_list[i])
+                pyperclip.copy(config.christmas_contact_names[i])
                 searchbar = driver.find_elements_by_xpath('//*[@id="yDmH0d"]/c-wiz/div/div/div/div/div/div[1]/div[3]/div/div[2]/div[3]')[0]
                 searchbar.click()
                 time.sleep(1)
@@ -31,19 +31,22 @@ def christmasMessage(hour, minute):
                 message = driver.find_elements_by_xpath('//*[@id="yDmH0d"]/c-wiz/div/div/div/div/div/div[2]/div/div[3]/div/div/div[3]/div[2]/div[1]/div/div[2]/div/div[1]')[0]
                 message.send_keys(Keys.CONTROL, 'v')
                 message.send_keys(Keys.ENTER)
-                print("Message successfully sent to "+ config.WA_christmas_contacts_list[i])
+                print("Message successfully sent to "+ config.christmas_contact_names[i])
+
+                christmas_contact_names_times[i][0] = 99
+                christmas_contact_names_times[i][1] = 99
             except:
-                print("Error sending message to "+ config.WA_christmas_contacts_list[i])
+                print("Error sending message to "+ config.christmas_contact_names[i])
                 pass
     return
 
 def newYearsMessage(hour, minute):
     #Sending New Year's message
     global driver
-    for i in range(0, len(config.WA_newYears_contacts_list)):
-        if WA_newYears_contacts_list_times[i][0] == hour and WA_newYears_contacts_list_times[i][1] == minute:
+    for i in range(0, len(config.newYears_contact_names)):
+        if newYears_contact_names_times[i][0] <= hour and newYears_contact_names_times[i][1] <= minute:
             try:
-                pyperclip.copy(config.WA_newYears_contacts_list[i])
+                pyperclip.copy(config.newYears_contact_names[i])
                 searchbar = driver.find_elements_by_xpath('//*[@id="yDmH0d"]/c-wiz/div/div/div/div/div/div[1]/div[3]/div/div[2]/div[3]')[0]
                 searchbar.click()
                 time.sleep(1)
@@ -57,9 +60,12 @@ def newYearsMessage(hour, minute):
                 message = driver.find_elements_by_xpath('//*[@id="yDmH0d"]/c-wiz/div/div/div/div/div/div[2]/div/div[3]/div/div/div[3]/div[2]/div[1]/div/div[2]/div/div[1]')[0]
                 message.send_keys(Keys.CONTROL, 'v')
                 message.send_keys(Keys.ENTER)
-                print("Message successfully sent to "+ config.WA_newYears_contacts_list[i])
+                print("Message successfully sent to "+ config.newYears_contact_names[i])
+
+                newYears_contact_names_times[i][0] = 99
+                newYears_contact_names_times[i][1] = 99
             except:
-                print("Error sending message to "+ config.WA_newYears_contacts_list[i])
+                print("Error sending message to "+ config.newYears_contact_names[i])
                 pass
     return
 
@@ -82,19 +88,19 @@ driver = webdriver.Chrome('./chromedriver')
 driver.get("https://messages.android.com/")
 wait = WebDriverWait(driver, 600)
 
-WA_christmas_contacts_list_times = [[0]*2 for i in range(len(config.WA_christmas_contacts_list))]
-WA_newYears_contacts_list_times = [[0]*2 for i in range(len(config.WA_christmas_contacts_list))]
+christmas_contact_names_times = [[0]*2 for i in range(len(config.christmas_contact_names))]
+newYears_contact_names_times = [[0]*2 for i in range(len(config.christmas_contact_names))]
 
 
-for i in range(0, len(config.WA_christmas_contacts_list)):
+for i in range(0, len(config.christmas_contact_names)):
     newTime = newRandTime(config.christmas_time_interval)
-    WA_christmas_contacts_list_times[i][0] = int(newTime[0:2])
-    WA_christmas_contacts_list_times[i][1] = int(newTime[3:5])
+    christmas_contact_names_times[i][0] = int(newTime[0:2])
+    christmas_contact_names_times[i][1] = int(newTime[3:5])
 
-for i in range(0, len(config.WA_newYears_contacts_list)):
+for i in range(0, len(config.newYears_contact_names)):
     newTime = newRandTime(config.christmas_time_interval)
-    WA_newYears_contacts_list_times[i][0] = int(newTime[0:2])
-    WA_newYears_contacts_list_times[i][1] = int(newTime[3:5])
+    newYears_contact_names_times[i][0] = int(newTime[0:2])
+    newYears_contact_names_times[i][1] = int(newTime[3:5])
 
 #Reassuring users the script actually works
 if(config.christmasModeEnabled):

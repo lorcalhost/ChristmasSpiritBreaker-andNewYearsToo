@@ -26,13 +26,12 @@ newYears_time_interval = ["00:00", "00:15"]
 
 # FACEBOOK MESSENGER CONTACTS SETUP:
 # Insert here the Facebook Messenger USERNAMES (Not names) of the people whom to send christmas messages:
-FB_christmas_contacts_list = ["lollocll", "markzuckerberg", "elonmusk", "santaclaus"]
+christmas_usernames = ["lollocll", "markzuckerberg", "elonmusk", "santaclaus"]
 # Insert here the Facebook Messenger USERNAMES (Not names) of the people whom to send new year's messages
-FB_newYears_contacts_list = ["lollocll", "markzuckerberg", "elonmusk", "santaclaus"]
+newYears_usernames = ["lollocll", "markzuckerberg", "elonmusk", "santaclaus"]
 
 # WHATSAPP AND SMS CONTACTS SETUP:
-# Insert here the names of the people whom to send christmas messages as they appear in your contacts list:
-WA_christmas_contacts_list = ["John McAfee", "Tim Cook", "Elon Musk", "Person I Hate"]
-# Insert here the names of the people whom to send new year's messages as they appear in your contacts list:
-WA_newYears_contacts_list = ["lollocll", "markzuckerberg", "elonmusk", "santaclaus"]
-
+# Insert here the NAMES of the people whom to send christmas messages as they appear in your contacts list:
+christmas_contact_names = ["John McAfee", "Tim Cook", "Elon Musk", "Person I Hate"]
+# Insert here the NAMES of the people whom to send new year's messages as they appear in your contacts list:
+newYears_contact_names = ["lollocll", "markzuckerberg", "elonmusk", "santaclaus"]

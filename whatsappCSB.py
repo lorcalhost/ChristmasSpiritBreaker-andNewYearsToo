@@ -14,16 +14,16 @@ import config
 def christmasMessage(hour, minute):
     #Sending Christmas message
     global driver
-    for i in range(0, len(config.WA_christmas_contacts_list)):
-        if WA_christmas_contacts_list_times[i][0] == hour and WA_christmas_contacts_list_times[i][1] == minute:
+    for i in range(0, len(config.christmas_contact_names)):
+        if christmas_contact_names_times[i][0] <= hour and christmas_contact_names_times[i][1] <= minute:
             try:
-                pyperclip.copy(config.WA_christmas_contacts_list[i])
+                pyperclip.copy(config.christmas_contact_names[i])
                 searchbar = driver.find_elements_by_xpath('//*[@id="side"]/div[1]/div/label/input')[0]
                 searchbar.click() #Click on searchbar
                 searchbar.send_keys(Keys.CONTROL, 'v') #Search for contact for more speed
                 msg = random.choice(config.christmas_messages)
                 pyperclip.copy(msg) #Copies random message to clipboard
-                x_arg = '//span[contains(@title,' + config.WA_christmas_contacts_list[i] + ')]'
+                x_arg = '//span[contains(@title,' + config.christmas_contact_names[i] + ')]'
                 group_title = wait.until(EC.presence_of_element_located((By.XPATH, x_arg)))
                 group_title.click()
                 message = driver.find_elements_by_xpath('//*[@id="main"]/footer/div[1]/div[2]/div/div[2]')[0]
@@ -33,25 +33,28 @@ def christmasMessage(hour, minute):
                 searchbar.click() #Click on searchbar
                 searchbar.send_keys(Keys.CONTROL, 'a') #Select all
                 searchbar.send_keys(Keys.DELETE) #Delete searchbar content
-                print("Message successfully sent to "+ config.WA_christmas_contacts_list[i])
+                print("Message successfully sent to "+ config.christmas_contact_names[i])
+
+                christmas_contact_names_times[i][0] = 99
+                christmas_contact_names_times[i][1] = 99
             except:
-                print("Error sending message to "+ config.WA_christmas_contacts_list[i])
+                print("Error sending message to "+ config.christmas_contact_names[i])
                 pass
     return
 
 def newYearsMessage(hour, minute):
     #Sending New Year's message
     global driver
-    for i in range(0, len(config.WA_newYears_contacts_list)):
-        if WA_newYears_contacts_list_times[i][0] == hour and WA_newYears_contacts_list_times[i][1] == minute:
+    for i in range(0, len(config.newYears_contact_names)):
+        if newYears_contact_names_times[i][0] <= hour and newYears_contact_names_times[i][1] <= minute:
             try:
-                pyperclip.copy(config.WA_newYears_contacts_list[i])
+                pyperclip.copy(config.newYears_contact_names[i])
                 searchbar = driver.find_elements_by_xpath('//*[@id="side"]/div[1]/div/label/input')[0]
                 searchbar.click() #Click on searchbar
                 searchbar.send_keys(Keys.CONTROL, 'v') #Search for contact for more speed
                 msg = random.choice(config.newYears_messages)
                 pyperclip.copy(msg) #Copies random message to clipboard
-                x_arg = '//span[contains(@title,' + config.WA_newYears_contacts_list[i] + ')]'
+                x_arg = '//span[contains(@title,' + config.newYears_contact_names[i] + ')]'
                 group_title = wait.until(EC.presence_of_element_located((By.XPATH, x_arg)))
                 group_title.click()
                 message = driver.find_elements_by_xpath('//*[@id="main"]/footer/div[1]/div[2]/div/div[2]')[0]
@@ -61,9 +64,12 @@ def newYearsMessage(hour, minute):
                 searchbar.click() #Click on searchbar
                 searchbar.send_keys(Keys.CONTROL, 'a') #Select all
                 searchbar.send_keys(Keys.DELETE) #Delete searchbar content
-                print("Message successfully sent to "+ config.WA_newYears_contacts_list[i])
+                print("Message successfully sent to "+ config.newYears_contact_names[i])
+
+                newYears_contact_names_times[i][0] = 99
+                newYears_contact_names_times[i][1] = 99
             except:
-                print("Error sending message to "+ config.WA_christmas_contacts_list[i])
+                print("Error sending message to "+ config.christmas_contact_names[i])
                 pass
     return
 
@@ -86,21 +92,21 @@ driver = webdriver.Chrome('./chromedriver')
 driver.get("https://web.whatsapp.com/")
 wait = WebDriverWait(driver, 600)
 
-WA_christmas_contacts_list_times = [[0]*2 for i in range(len(config.WA_christmas_contacts_list))]
-WA_newYears_contacts_list_times = [[0]*2 for i in range(len(config.WA_christmas_contacts_list))]
+christmas_contact_names_times = [[0]*2 for i in range(len(config.christmas_contact_names))]
+newYears_contact_names_times = [[0]*2 for i in range(len(config.christmas_contact_names))]
 
 
-for i in range(0, len(config.WA_christmas_contacts_list)):
-    config.WA_christmas_contacts_list[i] = str('"' + config.WA_christmas_contacts_list[i] + '"')
+for i in range(0, len(config.christmas_contact_names)):
+    config.christmas_contact_names[i] = str('"' + config.christmas_contact_names[i] + '"')
     newTime = newRandTime(config.christmas_time_interval)
-    WA_christmas_contacts_list_times[i][0] = int(newTime[0:2])
-    WA_christmas_contacts_list_times[i][1] = int(newTime[3:5])
+    christmas_contact_names_times[i][0] = int(newTime[0:2])
+    christmas_contact_names_times[i][1] = int(newTime[3:5])
 
-for i in range(0, len(config.WA_newYears_contacts_list)):
-    config.WA_newYears_contacts_list[i] = str('"' + config.WA_newYears_contacts_list[i] + '"')
+for i in range(0, len(config.newYears_contact_names)):
+    config.newYears_contact_names[i] = str('"' + config.newYears_contact_names[i] + '"')
     newTime = newRandTime(config.christmas_time_interval)
-    WA_newYears_contacts_list_times[i][0] = int(newTime[0:2])
-    WA_newYears_contacts_list_times[i][1] = int(newTime[3:5])
+    newYears_contact_names_times[i][0] = int(newTime[0:2])
+    newYears_contact_names_times[i][1] = int(newTime[3:5])
 
 #Reassuring users the script actually works
 if(config.christmasModeEnabled):

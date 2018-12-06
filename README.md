@@ -122,11 +122,11 @@ christmas_messages = ["Merry christmas!", "New custom message"]
 Replace the contact names in between ```" "``` with your own custom contact names, you can also add more custom contacts by adding after the ```"``` of the last contact a comma and a new contacts, always in between ```" "```s. 
 If we want to add ```Santa Claus``` to the list below 
 ```python
-WA_christmas_contacts_list = ["John McAfee"]
+christmas_contact_names = ["John McAfee"]
 ```
 We just need to edit it like this:
 ```python
-WA_christmas_contacts_list = ["John McAfee", "Santa Claus"]
+christmas_contact_names = ["John McAfee", "Santa Claus"]
 ```
 ## Custom time range: 
 The **christmas messages** will be sent on *December 25th*  
