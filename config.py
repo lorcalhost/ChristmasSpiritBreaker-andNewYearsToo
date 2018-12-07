@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*- 
 """
-   ___                 __  _
-  / __\  ___   _ __   / _|(_)  __ _
- / /    / _ \ | '_ \ | |_ | | / _` |
-/ /___ | (_) || | | ||  _|| || (_| |
-\____/  \___/ |_| |_||_|  |_| \__, |
-                              |___/
+   _____ _          _     _                        _____       _      _ _   ____                 _             
+  / ____| |        (_)   | |                      / ____|     (_)    (_) | |  _ \               | |            
+ | |    | |__  _ __ _ ___| |_ _ __ ___   __ _ ___| (___  _ __  _ _ __ _| |_| |_) |_ __ ___  __ _| | _____ _ __ 
+ | |    | '_ \| '__| / __| __| '_ ` _ \ / _` / __|\___ \| '_ \| | '__| | __|  _ <| '__/ _ \/ _` | |/ / _ \ '__|
+ | |____| | | | |  | \__ \ |_| | | | | | (_| \__ \____) | |_) | | |  | | |_| |_) | | |  __/ (_| |   <  __/ |   
+  \_____|_| |_|_|  |_|___/\__|_| |_| |_|\__,_|___/_____/| .__/|_|_|  |_|\__|____/|_|  \___|\__,_|_|\_\___|_|   
+                                                        | |                                                    
+                                                        |_|                                                    
 """
 # CHOOSE IF YOU WANT THE PROGRAM TO WORK BOTH FOR CHRISTMAS AND NEW YEAR'S OR JUST ONE OF THEM
 # Set to True to enable, False to disable
@@ -13,9 +15,9 @@ christmasModeEnabled = True # Change to False to disable Christmas mode
 newYearsModeEnabled = True # Change to False to disable New Year's mode
 
 # CUSTOM MESSAGES SETUP
-# Put here you custom christmas messages, supports emojis:
+# Put here your custom christmas messages, supports emojis:
 christmas_messages = ["Merry christmas!", "I wish you a merry christmas", "Merry christmas to you and family", "I hate christmas but merry christmas either way"]
-# Put here you custom New Year's messages, supports emojis:
+# Put here your custom New Year's messages, supports emojis:
 newYears_messages = ["Happy New Year!", "Felice capodanno as the italians say", "I totally wrote this messages on my own"]
 
 # CUSTOM TIMES SETUP
