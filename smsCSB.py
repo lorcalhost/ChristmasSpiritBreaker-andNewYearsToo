@@ -14,6 +14,7 @@ import config
 def christmasMessage(hour, minute):
     #Sending Christmas message
     global driver
+    global christmas_contact_names_times
     for i in range(0, len(config.christmas_contact_names)):
         if christmas_contact_names_times[i][0] <= hour and christmas_contact_names_times[i][1] <= minute:
             try:
@@ -43,6 +44,7 @@ def christmasMessage(hour, minute):
 def newYearsMessage(hour, minute):
     #Sending New Year's message
     global driver
+    global newYears_contact_names_times
     for i in range(0, len(config.newYears_contact_names)):
         if newYears_contact_names_times[i][0] <= hour and newYears_contact_names_times[i][1] <= minute:
             try:
@@ -89,7 +91,7 @@ driver.get("https://messages.android.com/")
 wait = WebDriverWait(driver, 600)
 
 christmas_contact_names_times = [[0]*2 for i in range(len(config.christmas_contact_names))]
-newYears_contact_names_times = [[0]*2 for i in range(len(config.christmas_contact_names))]
+newYears_contact_names_times = [[0]*2 for i in range(len(config.newYears_contact_names))]
 
 
 for i in range(0, len(config.christmas_contact_names)):
@@ -98,7 +100,7 @@ for i in range(0, len(config.christmas_contact_names)):
     christmas_contact_names_times[i][1] = int(newTime[3:5])
 
 for i in range(0, len(config.newYears_contact_names)):
-    newTime = newRandTime(config.christmas_time_interval)
+    newTime = newRandTime(config.newYears_time_interval)
     newYears_contact_names_times[i][0] = int(newTime[0:2])
     newYears_contact_names_times[i][1] = int(newTime[3:5])
 

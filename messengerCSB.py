@@ -15,14 +15,17 @@ client = fbchat.Client(username, passwrd)
 def christmasMessage(hour, minute):
     #Sending Christmas message
     global client
+    global christmas_usernames_times
     for i in range(0, len(config.christmas_usernames)):
-        if christmas_usernames_times[i][0] == hour and christmas_usernames_times[i][1] == minute:
+        if christmas_usernames_times[i][0] <= hour and christmas_usernames_times[i][1] <= minute:
             friends = client.searchForUsers(config.christmas_usernames[i])
             friend = friends[0]
             msg = random.choice(config.christmas_messages)
             sent = client.send(Message(msg), thread_id=friend.uid, thread_type=ThreadType.USER)
             if sent:
                 print("Message successfully sent to "+ friend)
+                christmas_usernames_times[i][0] = 99
+                christmas_usernames_times[i][1] = 99
             else:
                 global username
                 global passwrd
@@ -34,13 +37,15 @@ def newYearsMessage(hour, minute):
     #Sending New Year's message
     global client
     for i in range(0, len(config.newYears_usernames)):
-        if newYears_usernames_times[i][0] == hour and newYears_usernames_times[i][1] == minute:
+        if newYears_usernames_times[i][0] <= hour and newYears_usernames_times[i][1] <= minute:
             friends = client.searchForUsers(config.newYears_usernames[i])
             friend = friends[0]
             msg = random.choice(config.newYears_messages)
             sent = client.send(Message(msg), thread_id=friend.uid, thread_type=ThreadType.USER)
             if sent:
                 print("Message successfully sent to "+ friend)
+                newYears_usernames_times[i][0] = 99
+                newYears_usernames_times[i][1] = 99
             else:
                 global username
                 global passwrd
@@ -59,7 +64,7 @@ def newRandTime(customTimeInterval):
     return str(str(randTimeHour).zfill(2) + ":" + str(randTimeMinute).zfill(2))
 
 christmas_usernames_times = [[0]*2 for i in range(len(config.christmas_usernames))]
-newYears_usernames_times = [[0]*2 for i in range(len(config.christmas_usernames))]
+newYears_usernames_times = [[0]*2 for i in range(len(config.newYears_usernames))]
 
 for i in range(0, len(config.christmas_usernames)):
     newTime = newRandTime(config.christmas_time_interval)
@@ -67,7 +72,7 @@ for i in range(0, len(config.christmas_usernames)):
     christmas_usernames_times[i][1] = int(newTime[3:5])
 
 for i in range(0, len(config.newYears_usernames)):
-    newTime = newRandTime(config.christmas_time_interval)
+    newTime = newRandTime(config.newYears_time_interval)
     newYears_usernames_times[i][0] = int(newTime[0:2])
     newYears_usernames_times[i][1] = int(newTime[3:5])
 
