@@ -10,6 +10,7 @@ Strongly inspired by my other project [RomanceBreaker](https://github.com/lorcal
   - Magic
 
 ---
+## [NEW] [YOU CAN FIND THE VIDEO INSTALLATION GUIDE HERE](https://youtu.be/yaC3OxaGJpI)
 # Facebook Messenger:
 ### Installation on PC
 
