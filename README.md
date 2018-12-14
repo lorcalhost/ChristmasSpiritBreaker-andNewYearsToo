@@ -65,7 +65,7 @@ git clone https://github.com/lorcalhost/ChristmasSpiritBreaker-andNewYearsToo.gi
 - Also install git from [here](https://git-scm.com/download/win)
 - Make sure you run all the commands from git
 ```sh
-sudo pip install selenium bs4 pyperclip
+pip install selenium bs4 pyperclip
 git clone https://github.com/lorcalhost/ChristmasSpiritBreaker-andNewYearsToo.git
 ```
 ##### SMS mode is strongly not suggested, it's slow and buggy due to Google Messages nature
