@@ -23,7 +23,7 @@ def christmasMessage(hour, minute):
             msg = random.choice(config.christmas_messages)
             sent = client.send(Message(msg), thread_id=friend.uid, thread_type=ThreadType.USER)
             if sent:
-                print("Message successfully sent to "+ friend)
+                print("Message successfully sent to {}" .format(friend))
                 christmas_usernames_times[i][0] = 99
                 christmas_usernames_times[i][1] = 99
             else:
@@ -43,7 +43,7 @@ def newYearsMessage(hour, minute):
             msg = random.choice(config.newYears_messages)
             sent = client.send(Message(msg), thread_id=friend.uid, thread_type=ThreadType.USER)
             if sent:
-                print("Message successfully sent to "+ friend)
+                print("Message successfully sent to {}" .format(friend))
                 newYears_usernames_times[i][0] = 99
                 newYears_usernames_times[i][1] = 99
             else:
@@ -78,9 +78,9 @@ for i in range(0, len(config.newYears_usernames)):
 
 #Reassuring users the script actually works
 if(config.christmasModeEnabled):
-    print("Christmas messages setup correctly, They will be sent on December 25th in the time interval " + config.christmas_time_interval[0] + " " + config.christmas_time_interval[1])
+    print("Christmas messages setup correctly, They will be sent on December 25th in the time interval {} {}" .format(config.christmas_time_interval[0], config.christmas_time_interval[1]))
 if(config.newYearsModeEnabled):
-    print("New Year's messages setup correctly, They will be sent on January 1st in the time interval " + config.christmas_time_interval[0] + " " + config.christmas_time_interval[1])
+    print("New Year's messages setup correctly, They will be sent on January 1st in the time interval {} {}" .format(config.newYears_time_interval[0], config.newYears_time_interval[1]))
 
 while True:
     if (config.christmasModeEnabled):

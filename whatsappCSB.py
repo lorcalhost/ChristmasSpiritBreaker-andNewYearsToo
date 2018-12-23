@@ -27,19 +27,21 @@ def christmasMessage(hour, minute):
                 x_arg = '//span[contains(@title,' + config.christmas_contact_names[i] + ')]'
                 group_title = wait.until(EC.presence_of_element_located((By.XPATH, x_arg)))
                 group_title.click()
+                time.sleep(0.1)
                 message = driver.find_elements_by_xpath('//*[@id="main"]/footer/div[1]/div[2]/div/div[2]')[0]
                 message.send_keys(Keys.CONTROL, 'v') #Sends message from clipboard
+                time.sleep(0.1)
                 sendbutton = driver.find_elements_by_xpath('//*[@id="main"]/footer/div[1]/div[3]/button')[0]
                 sendbutton.click() #Presses send button
                 searchbar.click() #Click on searchbar
                 searchbar.send_keys(Keys.CONTROL, 'a') #Select all
                 searchbar.send_keys(Keys.DELETE) #Delete searchbar content
-                print("Message successfully sent to "+ config.christmas_contact_names[i])
+                print("Message successfully sent to {}" .format(config.christmas_contact_names[i]))
 
                 christmas_contact_names_times[i][0] = 99
                 christmas_contact_names_times[i][1] = 99
             except:
-                print("Error sending message to "+ config.christmas_contact_names[i])
+                print("Error sending message to {}" .format(config.christmas_contact_names[i]))
                 pass
     return
 
@@ -59,19 +61,21 @@ def newYearsMessage(hour, minute):
                 x_arg = '//span[contains(@title,' + config.newYears_contact_names[i] + ')]'
                 group_title = wait.until(EC.presence_of_element_located((By.XPATH, x_arg)))
                 group_title.click()
+                time.sleep(0.1)
                 message = driver.find_elements_by_xpath('//*[@id="main"]/footer/div[1]/div[2]/div/div[2]')[0]
                 message.send_keys(Keys.CONTROL, 'v') #Sends message from clipboard
+                time.sleep(0.1)
                 sendbutton = driver.find_elements_by_xpath('//*[@id="main"]/footer/div[1]/div[3]/button')[0]
                 sendbutton.click() #Presses send button
                 searchbar.click() #Click on searchbar
                 searchbar.send_keys(Keys.CONTROL, 'a') #Select all
                 searchbar.send_keys(Keys.DELETE) #Delete searchbar content
-                print("Message successfully sent to "+ config.newYears_contact_names[i])
+                print("Message successfully sent to {}" .format(config.newYears_contact_names[i]))
 
                 newYears_contact_names_times[i][0] = 99
                 newYears_contact_names_times[i][1] = 99
             except:
-                print("Error sending message to "+ config.newYears_contact_names[i])
+                print("Error sending message to {}" .format(config.newYears_contact_names[i]))
                 pass
     return
 
@@ -112,9 +116,9 @@ for i in range(0, len(config.newYears_contact_names)):
 
 #Reassuring users the script actually works
 if(config.christmasModeEnabled):
-    print("Christmas messages setup correctly, They will be sent on December 25th in the time interval " + config.christmas_time_interval[0] + " " + config.christmas_time_interval[1])
+    print("Christmas messages setup correctly, They will be sent on December 25th in the time interval {} {}" .format(config.christmas_time_interval[0], config.christmas_time_interval[1]))
 if(config.newYearsModeEnabled):
-    print("New Year's messages setup correctly, They will be sent on January 1st in the time interval " + config.christmas_time_interval[0] + " " + config.christmas_time_interval[1])
+    print("New Year's messages setup correctly, They will be sent on January 1st in the time interval {} {}" .format(config.newYears_time_interval[0], config.newYears_time_interval[1]))
 
 while True:
     if (config.christmasModeEnabled):
