@@ -3,7 +3,7 @@ import time
 import datetime
 import fbchat
 import random
-from fbchat.models import *
+from fbchat.models import ThreadType, Message
 from getpass import getpass
 import config
 
@@ -63,23 +63,21 @@ def newRandTime(customTimeInterval):
         randTimeMinute = random.randint(0, 59)
     return str(str(randTimeHour).zfill(2) + ":" + str(randTimeMinute).zfill(2))
 
-christmas_usernames_times = [[0]*2 for i in range(len(config.christmas_usernames))]
-newYears_usernames_times = [[0]*2 for i in range(len(config.newYears_usernames))]
-
-for i in range(0, len(config.christmas_usernames)):
-    newTime = newRandTime(config.christmas_time_interval)
-    christmas_usernames_times[i][0] = int(newTime[0:2])
-    christmas_usernames_times[i][1] = int(newTime[3:5])
-
-for i in range(0, len(config.newYears_usernames)):
-    newTime = newRandTime(config.newYears_time_interval)
-    newYears_usernames_times[i][0] = int(newTime[0:2])
-    newYears_usernames_times[i][1] = int(newTime[3:5])
-
 #Reassuring users the script actually works
 if(config.christmasModeEnabled):
+    christmas_usernames_times = [[0]*2 for i in range(len(config.christmas_usernames))]
+    for i in range(0, len(config.christmas_usernames)):
+        newTime = newRandTime(config.christmas_time_interval)
+        christmas_usernames_times[i][0] = int(newTime[0:2])
+        christmas_usernames_times[i][1] = int(newTime[3:5])
     print("Christmas messages setup correctly, They will be sent on December 25th in the time interval {} {}" .format(config.christmas_time_interval[0], config.christmas_time_interval[1]))
+
 if(config.newYearsModeEnabled):
+    newYears_usernames_times = [[0]*2 for i in range(len(config.newYears_usernames))]
+    for i in range(0, len(config.newYears_usernames)):
+        newTime = newRandTime(config.newYears_time_interval)
+        newYears_usernames_times[i][0] = int(newTime[0:2])
+        newYears_usernames_times[i][1] = int(newTime[3:5])
     print("New Year's messages setup correctly, They will be sent on January 1st in the time interval {} {}" .format(config.newYears_time_interval[0], config.newYears_time_interval[1]))
 
 while True:

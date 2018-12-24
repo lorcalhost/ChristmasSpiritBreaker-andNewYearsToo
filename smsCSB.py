@@ -93,21 +93,21 @@ wait = WebDriverWait(driver, 600)
 christmas_contact_names_times = [[0]*2 for i in range(len(config.christmas_contact_names))]
 newYears_contact_names_times = [[0]*2 for i in range(len(config.newYears_contact_names))]
 
-
-for i in range(0, len(config.christmas_contact_names)):
-    newTime = newRandTime(config.christmas_time_interval)
-    christmas_contact_names_times[i][0] = int(newTime[0:2])
-    christmas_contact_names_times[i][1] = int(newTime[3:5])
-
-for i in range(0, len(config.newYears_contact_names)):
-    newTime = newRandTime(config.newYears_time_interval)
-    newYears_contact_names_times[i][0] = int(newTime[0:2])
-    newYears_contact_names_times[i][1] = int(newTime[3:5])
-
-#Reassuring users the script actually works
+# Setting up things
 if(config.christmasModeEnabled):
+    christmas_contact_names_times = [[0]*2 for i in range(len(config.christmas_contact_names))]
+    for i in range(0, len(config.christmas_contact_names)):
+        newTime = newRandTime(config.christmas_time_interval)
+        christmas_contact_names_times[i][0] = int(newTime[0:2])
+        christmas_contact_names_times[i][1] = int(newTime[3:5])
     print("Christmas messages setup correctly, They will be sent on December 25th in the time interval {} {}" .format(config.christmas_time_interval[0], config.christmas_time_interval[1]))
+
 if(config.newYearsModeEnabled):
+    newYears_contact_names_times = [[0]*2 for i in range(len(config.newYears_contact_names))]
+    for i in range(0, len(config.newYears_contact_names)):
+        newTime = newRandTime(config.newYears_time_interval)
+        newYears_contact_names_times[i][0] = int(newTime[0:2])
+        newYears_contact_names_times[i][1] = int(newTime[3:5])
     print("New Year's messages setup correctly, They will be sent on January 1st in the time interval {} {}" .format(config.newYears_time_interval[0], config.newYears_time_interval[1]))
 
 while True:
