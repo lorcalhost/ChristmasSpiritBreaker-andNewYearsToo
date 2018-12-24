@@ -18,13 +18,14 @@ def christmasMessage(hour, minute):
     for i in range(0, len(config.christmas_contact_names)):
         if christmas_contact_names_times[i][0] <= hour and christmas_contact_names_times[i][1] <= minute:
             try:
+                quoted_username = str('"' + config.christmas_contact_names[i] + '"')
                 pyperclip.copy(config.christmas_contact_names[i])
                 searchbar = driver.find_elements_by_xpath('//*[@id="side"]/div[1]/div/label/input')[0]
                 searchbar.click() #Click on searchbar
                 searchbar.send_keys(Keys.CONTROL, 'v') #Search for contact for more speed
                 msg = random.choice(config.christmas_messages)
                 pyperclip.copy(msg) #Copies random message to clipboard
-                x_arg = '//span[contains(@title,' + config.christmas_contact_names[i] + ')]'
+                x_arg = '//span[contains(@title,' + quoted_username + ')]'
                 group_title = wait.until(EC.presence_of_element_located((By.XPATH, x_arg)))
                 group_title.click()
                 time.sleep(0.1)
@@ -52,13 +53,14 @@ def newYearsMessage(hour, minute):
     for i in range(0, len(config.newYears_contact_names)):
         if newYears_contact_names_times[i][0] <= hour and newYears_contact_names_times[i][1] <= minute:
             try:
+                quoted_username = str('"' + config.newYears_contact_names[i] + '"')
                 pyperclip.copy(config.newYears_contact_names[i])
                 searchbar = driver.find_elements_by_xpath('//*[@id="side"]/div[1]/div/label/input')[0]
                 searchbar.click() #Click on searchbar
                 searchbar.send_keys(Keys.CONTROL, 'v') #Search for contact for more speed
                 msg = random.choice(config.newYears_messages)
                 pyperclip.copy(msg) #Copies random message to clipboard
-                x_arg = '//span[contains(@title,' + config.newYears_contact_names[i] + ')]'
+                x_arg = '//span[contains(@title,' + quoted_username + ')]'
                 group_title = wait.until(EC.presence_of_element_located((By.XPATH, x_arg)))
                 group_title.click()
                 time.sleep(0.1)
@@ -103,13 +105,11 @@ newYears_contact_names_times = [[0]*2 for i in range(len(config.newYears_contact
 
 
 for i in range(0, len(config.christmas_contact_names)):
-    config.christmas_contact_names[i] = str('"' + config.christmas_contact_names[i] + '"')
     newTime = newRandTime(config.christmas_time_interval)
     christmas_contact_names_times[i][0] = int(newTime[0:2])
     christmas_contact_names_times[i][1] = int(newTime[3:5])
 
 for i in range(0, len(config.newYears_contact_names)):
-    config.newYears_contact_names[i] = str('"' + config.newYears_contact_names[i] + '"')
     newTime = newRandTime(config.newYears_time_interval)
     newYears_contact_names_times[i][0] = int(newTime[0:2])
     newYears_contact_names_times[i][1] = int(newTime[3:5])
