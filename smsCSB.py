@@ -112,9 +112,9 @@ if(config.newYearsModeEnabled):
 
 while True:
     if (config.christmasModeEnabled):
-        if (int(datetime.datetime.today().day) == 25) and (int(datetime.datetime.today().month) == 12):
+        if (int(datetime.datetime.today().day) == config.christmas_day) and (int(datetime.datetime.today().month) == config.christmas_month):
             christmasMessage(int(datetime.datetime.today().hour), int(datetime.datetime.today().minute))
     if (config.newYearsModeEnabled):
-        if (int(datetime.datetime.today().day) == 1) and (int(datetime.datetime.today().month) == 1):
+        if (int(datetime.datetime.today().day) == config.newYears_day) and (int(datetime.datetime.today().month) == config.newYears_month):
             newYearsMessage(int(datetime.datetime.today().hour), int(datetime.datetime.today().minute))        
-    time.sleep(60) #Wait one minute before checking again
+    time.sleep(config.updade_frequency) #Wait one minute before checking again

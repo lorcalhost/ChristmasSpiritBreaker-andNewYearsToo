@@ -14,6 +14,18 @@
 christmasModeEnabled = True # Change to False to disable Christmas mode
 newYearsModeEnabled = True # Change to False to disable New Year's mode
 
+# RUN DATE AND FREQUENCY SETUP   
+# Setup Christmas and New Year's day/month:
+christmas_day = 25
+christmas_month = 12
+
+newYears_day = 1
+newYears_month = 1
+
+# Setup date/time update frequency (in seconds):
+updade_frequency = 60
+
+
 # CUSTOM MESSAGES SETUP
 # Put here your custom christmas messages, supports emojis:
 christmas_messages = ["Merry christmas!", "I wish you a merry christmas", "Merry christmas to you and family", "I hate christmas but merry christmas either way"]
