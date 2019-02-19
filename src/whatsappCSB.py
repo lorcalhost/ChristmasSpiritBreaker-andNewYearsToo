@@ -1,14 +1,13 @@
 # -*- coding: utf-8 -*-
-from src.selenium_sendMessage import wa
-from src import individualTimes
+from selenium_sendMessage import wa
+import individualTimes
+import os,sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import config
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 import time
 import datetime
-import os
-import sys
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 print("A popup view of WhatsApp web will now open,\nScan the QR code in the page via your app\nDon't close the popup")
 time.sleep(5)

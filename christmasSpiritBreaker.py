@@ -5,7 +5,9 @@ import config
 
 command = "python"
 if config.currentOS is "Linux":
-    command += "3"
+    command += "3 src/"
+else:
+    command += " src\\"
 
 
 def prnthelp():
@@ -17,13 +19,13 @@ def prnthelp():
 try:
     if str(sys.argv[1]) == "whatsapp" or str(sys.argv[1]) == "-w":
         print("WHATSAPP MODE")
-        os.system("{} whatsappCSB.py" .format(command))
+        os.system("{}whatsappCSB.py" .format(command))
     elif str(sys.argv[1]) == "messenger" or str(sys.argv[1]) == "-m":
         print("MESSENGER MODE")
-        os.system("{} messengerCSB.py" .format(command))
+        os.system("{}messengerCSB.py" .format(command))
     elif str(sys.argv[1]) == "sms" or str(sys.argv[1]) == "-s":
         print("SMS MODE")
-        os.system("{} smsCSB.py" .format(command))
+        os.system("{}smsCSB.py" .format(command))
     elif str(sys.argv[1]) == "help" or str(sys.argv[1]) == "-h" or str(sys.argv[1]) == "man":
         prnthelp()
     elif str(sys.argv[1]) == "update":

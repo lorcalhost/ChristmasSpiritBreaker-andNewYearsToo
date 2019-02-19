@@ -1,14 +1,13 @@
 # -*- coding: utf-8 -*-
 import fb_sendMessage
 import individualTimes
+import os,sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import config
 import time
 import datetime
 import fbchat
 from getpass import getpass
-import os
-import sys
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Getting username & pwd
 username = input("Username: ")
