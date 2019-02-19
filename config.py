@@ -42,14 +42,41 @@ christmas_time_interval = ["08:00", "23:59"]
 # Put here the time interval in which the New Year's messages should be sent, make sure hour is two digits:
 newYears_time_interval = ["00:00", "00:15"]
 
+# ---------------------------------------------------------------------------------------------------------
+# FACEBOOK
+
+# LOGIN SETUP:
+fb_username = "YOUR_USERNAME"
+fb_password = "YOUR_PASSWORD"
+
 # FACEBOOK MESSENGER CONTACTS SETUP:
 # Insert here the Facebook Messenger USERNAMES (Not names) of the people whom to send christmas messages:
-christmas_usernames = ["lollocll", "markzuckerberg", "elonmusk", "santaclaus"]
+fb_christmas_usernames = ["lollocll", "markzuckerberg", "elonmusk", "santaclaus"]
 # Insert here the Facebook Messenger USERNAMES (Not names) of the people whom to send new year's messages
-newYears_usernames = ["lollocll", "markzuckerberg", "elonmusk", "santaclaus"]
+fb_newYears_usernames = ["lollocll", "markzuckerberg", "elonmusk", "santaclaus"]
+
+# ---------------------------------------------------------------------------------------------------------
+# WHATSAPP & SMS
 
 # WHATSAPP AND SMS CONTACTS SETUP:
 # Insert here the NAMES of the people whom to send christmas messages as they appear in your contacts list:
 christmas_contact_names = ["John McAfee", "Tim Cook", "Elon Musk", "Person I Hate"]
 # Insert here the NAMES of the people whom to send new year's messages as they appear in your contacts list:
 newYears_contact_names = ["lollocll", "markzuckerberg", "elonmusk", "santaclaus"]
+
+# ---------------------------------------------------------------------------------------------------------
+# TELEGRAM
+
+# LOGIN SETUP:
+telegram_phone = "+391234567890"
+telegram_username = "lorcalhost"
+telegram_password = "MY_PASSWORD" # Required only if you have two-step verification enabled
+# (Get api_id and api_hash from https://my.telegram.org then API development tools and create an App)
+tg_api_id = 123456
+tg_api_hash = '133780563f161f870b2b7sk72ba1c36f'
+
+# TELEGRAM CONTACTS SETUP:
+# Insert here the Telegram USERNAMES (Not names) of the people whom to send christmas messages:
+tg_christmas_usernames = ["lorcalhost", "markzuckerberg", "elonmusk", "santaclaus"]
+# Insert here the Telegram USERNAMES (Not names) of the people whom to send new year's messages
+tg_newYears_usernames = ["lorcalhost", "markzuckerberg", "elonmusk", "santaclaus"]
