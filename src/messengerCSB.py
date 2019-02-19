@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
+import fb_sendMessage
+import individualTimes
+import config
 import time
 import datetime
 import fbchat
 from getpass import getpass
-import config
-from src import individualTimes
-from src import fb_sendMessage
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Getting username & pwd
 username = input("Username: ")
@@ -34,10 +37,10 @@ while True:
     if (config.christmasModeEnabled):
         if (today_day == config.christmas_day) and (today_month == config.christmas_month):
             fb_sendMessage.fb(today_hour, today_minutes, client, username, passwrd,
-                           config.christmas_usernames, christmas_usernames_times, config.christmas_messages)
+                              config.christmas_usernames, christmas_usernames_times, config.christmas_messages)
     if (config.newYearsModeEnabled):
         if (today_day == config.newYears_day) and (today_month == config.newYears_month):
             fb_sendMessage.fb(today_hour, today_minutes, client, username, passwrd,
-                           config.newYears_usernames, newYears_usernames_times, config.newYears_messages)
+                              config.newYears_usernames, newYears_usernames_times, config.newYears_messages)
     # Wait one minute before checking again
     time.sleep(config.updade_frequency)

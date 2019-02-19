@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import random
 
+
 def newTime(customTimeInterval):
     randTimeHour = random.randint(
         int(customTimeInterval[0][0:2]), int(customTimeInterval[1][0:2]))

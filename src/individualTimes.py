@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import randomTime
 
+
 def custom(usernames, time_interval):
     usernames_times = [[0]*2 for i in range(len(usernames))]
     for i in range(0, len(usernames)):

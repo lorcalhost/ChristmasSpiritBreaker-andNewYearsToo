@@ -1,20 +1,22 @@
 # -*- coding: utf-8 -*-
+from src.selenium_sendMessage import wa
+from src import individualTimes
+import config
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 import time
-import sys
 import datetime
-import config
-from src import individualTimes
-from src.selenium_sendMessage import sms
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-
-print("A popup view of Android Messages web will now open,\nScan the QR code in the page via your app\nDon't close the popup")
+print("A popup view of WhatsApp web will now open,\nScan the QR code in the page via your app\nDon't close the popup")
 time.sleep(5)
 
 # Logging in
-driver = webdriver.Chrome('./chromedriver')
-driver.get("https://messages.android.com/")
+driver = webdriver.Chrome(
+    '{}/chromedriver'.format(os.path.dirname(os.path.realpath('__file__'))))
+driver.get("https://web.whatsapp.com/")
 wait = WebDriverWait(driver, 600)
 
 # Setting up
@@ -38,11 +40,11 @@ while True:
 
     if (config.christmasModeEnabled):
         if (today_day == config.christmas_day) and (today_month == config.christmas_month):
-            sms(today_hour, today_minutes, driver, wait, config.christmas_contact_names,
-                christmas_names_times, config.christmas_messages)
+            wa(today_hour, today_minutes, driver, wait, config.christmas_contact_names,
+               christmas_names_times, config.christmas_messages)
     if (config.newYearsModeEnabled):
         if (today_day == config.newYears_day) and (today_month == config.newYears_month):
-            sms(today_hour, today_minutes, driver, wait, config.newYears_contact_names,
+            wa(today_hour, today_minutes, driver, wait, config.newYears_contact_names,
                newYears_names_times, config.newYears_messages)
     # Wait one minute before checking again
     time.sleep(config.updade_frequency)
