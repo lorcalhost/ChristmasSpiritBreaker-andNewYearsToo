@@ -14,6 +14,10 @@
 christmasModeEnabled = True # Change to False to disable Christmas mode
 newYearsModeEnabled = True # Change to False to disable New Year's mode
 
+# CHOOSE WHICH PLATFORM YOU ARE ON:
+# Windows/Linux (case sensitive)
+currentOS = "Windows"
+
 # RUN DATE AND FREQUENCY SETUP   
 # Setup Christmas and New Year's day/month:
 christmas_day = 25
